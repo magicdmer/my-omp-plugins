@@ -1,0 +1,10 @@
+{
+	"name": "omp-deepseek-balance",
+	"version": "0.1.0",
+	"description": "DeepSeek balance and peak/off-peak tariff in the omp status line",
+	"type": "module",
+	"omp": {
+		"extensions": ["./extensions/deepseek-balance.ts"]
+	},
+	"files": ["extensions", "README.md"]
+}

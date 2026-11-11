@@ -1,0 +1,21 @@
+{
+	"$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+	"name": "magicdmer-plugins",
+	"owner": {
+		"name": "magicdmer"
+	},
+	"metadata": {
+		"description": "Personal omp plugins",
+		"version": "0.1.0"
+	},
+	"plugins": [
+		{
+			"name": "deepseek-balance",
+			"description": "DeepSeek balance and peak/off-peak tariff in the omp status line",
+			"version": "0.1.0",
+			"source": "./plugins/deepseek-balance",
+			"category": "productivity",
+			"tags": ["statusline", "deepseek", "cost"]
+		}
+	]
+}
