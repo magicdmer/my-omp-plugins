@@ -12,17 +12,17 @@ omp plugin install deepseek-balance@magicdmer-plugins
 
 扩展模块安装后需要重启 omp 会话；skills / commands / agents / MCP 用 `/reload-plugins` 刷新。
 
-不想用 marketplace 也可以直接装单个插件：
+本地开发时，在本仓库根目录直接链接插件源码：
 
 ```sh
-omp plugin install github:magicdmer/my-omp-plugins
+omp plugin link ./plugins/deepseek-balance
 ```
 
 ## 插件
 
 | 插件 | 说明 |
 | --- | --- |
-| `deepseek-balance` | 状态栏显示 DeepSeek 账户余额与当前峰谷计费（`DS ¥57.52 · 峰价`），`/ds-balance` 手动刷新 |
+| `deepseek-balance` | 账户总额/充值/赠送余额、目录峰谷提示；`/ds-balance` 命令与 `deepseek_balance` 只读工具，含缓存和并发请求合并。 |
 
 ## 结构
 
@@ -37,6 +37,7 @@ plugins/deepseek-balance/           插件树
 ## 维护
 
 - 改插件代码后同步 `plugins/<name>/`；递增该插件的 `version` 与 catalog 里的 `version`，否则消费者 `upgrade` 不会重装。
+- 本仓库是插件维护源，不再同步维护全局单文件扩展；迁移、最低宿主版本和回归测试见 [插件说明](plugins/deepseek-balance/README.md)。不要同时启用本地链接、市场安装副本与旧单文件。
 - 新增插件：在 `plugins/<name>/` 放入插件树，并在 `.omp-plugin/marketplace.json` 的 `plugins` 里加一条（`name`、`source: "./plugins/<name>"`、`version`）。
 - 名称只能用小写字母、数字、`-`、`.`，首尾为字母或数字，最长 64 字符。
 - 外部插件可用 `{"source":"github","repo":"owner/repo","sha":"…"}`、`url` 或 `git-subdir` 对象源；npm 源可解析但当前不能安装。

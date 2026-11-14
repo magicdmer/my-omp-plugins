@@ -1,10 +1,16 @@
 {
 	"name": "omp-deepseek-balance",
-	"version": "0.1.0",
-	"description": "DeepSeek balance and peak/off-peak tariff in the omp status line",
+	"version": "0.2.0",
+	"description": "DeepSeek balance details, read-only query tool, and catalog tariff reminders for omp",
 	"type": "module",
 	"omp": {
 		"extensions": ["./extensions/deepseek-balance.ts"]
 	},
-	"files": ["extensions", "README.md"]
+	"files": ["extensions", "README.md"],
+	"scripts": {
+		"test": "node --test test/*.test.mjs"
+	},
+	"devDependencies": {
+		"@oh-my-pi/omptype": "18.20.0"
+	}
 }
